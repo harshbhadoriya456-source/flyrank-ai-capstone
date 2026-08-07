@@ -1,26 +1,156 @@
-&lt;div align="center"&gt;
+<div align="center">
 
 # 🚀 FlyRank AI Capstone
 
-**AI-Powered [Domain TBD] — Built with Modern Engineering Practices**
+**AI Engineering Capstone Project for the FlyRank AI Track**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js](https://img.shields.io/badge/Node.js-20%2B-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org/)
-[![Status](https://img.shields.io/badge/Status-Phase%201%20Setup-blue)](https://github.com/harshbhadoriya456-source/flyrank-ai-capstone)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Status](https://img.shields.io/badge/Status-Setup-orange)
+![Node.js](https://img.shields.io/badge/Node.js-20+-green)
 
-[Overview](#overview) • [Tech Stack](#tech-stack) • [AI Workflow](#ai-workflow) • [Roadmap](#roadmap) • [Getting Started](#getting-started)
-
-&lt;/div&gt;
+</div>
 
 ---
 
-## 📋 Overview
+# 📋 Overview
 
-FlyRank is a production-ready AI application built as the capstone project for the **FlyRank AI Engineering Track**. It leverages modern AI-assisted development workflows and industry-standard software engineering practices to solve real-world problems through intelligent automation.
+This repository contains my capstone project for the **FlyRank AI Engineering Track**. It serves as the foundation for building a production-ready AI application while following modern software engineering principles, AI-assisted development workflows, and industry best practices.
 
-&gt; **Problem Statement:** *[To be finalized in Milestone 2 — targeting a domain where AI can deliver measurable value through automation and intelligent decision-making.]*
+The project idea and detailed problem statement will be finalized during the implementation phase of the capstone.
 
 ---
 
-## 🏗️ Architecture
+# 🚧 Project Status
+
+**Current Phase:** Repository Setup ✅
+
+The repository has been initialized with the required project structure, documentation, Git workflow, and AI development guidelines. Application development will begin in the next milestone.
+
+---
+
+# 🎯 Objectives
+
+- Build a production-ready AI application.
+- Apply AI-assisted software engineering practices.
+- Maintain a clean Git history using Conventional Commits.
+- Follow modern documentation and development standards.
+
+---
+
+# 🛠 Tech Stack
+
+### Current
+
+- Git
+- GitHub
+- Node.js
+- Visual Studio Code
+- AI Coding Assistant (Cursor / Claude Code)
+
+### Planned
+
+- TypeScript
+- Application Framework *(TBD)*
+- AI SDK *(TBD)*
+- Database *(TBD)*
+- Docker
+- GitHub Actions
+
+---
+
+# 🤖 AI Workflow
+
+AI tools are integrated throughout the development lifecycle to improve productivity while maintaining engineering quality.
+
+| Phase | AI Usage |
+|-------|----------|
+| Planning | Architecture discussions and project planning |
+| Development | Code generation and scaffolding |
+| Debugging | Error analysis and troubleshooting |
+| Documentation | README and documentation improvements |
+| Testing | Test generation and edge-case identification |
+| Review | Code quality and refactoring suggestions |
+
+> **Principle:** AI acts as a development assistant, while all generated code is reviewed, tested, and validated before integration.
+
+---
+
+# 📁 Repository Structure
+
+```text
+.
+├── README.md
+├── LICENSE
+├── .gitignore
+└── CLAUDE.md
+```
+
+---
+
+# 🗺️ Roadmap
+
+- ✅ Repository Setup
+- ✅ Documentation
+- 🚧 Project Initialization
+- ⏳ Core Feature Development
+- ⏳ AI Integration
+- ⏳ Testing
+- ⏳ Deployment
+- ⏳ Final Documentation & Demo
+
+---
+
+# 🚀 Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/harshbhadoriya456-source/flyrank-ai-capstone.git
+cd flyrank-ai-capstone
+```
+
+The application source code and installation instructions will be added as development progresses.
+
+---
+
+# 🧑‍💻 Development Guidelines
+
+- Follow Conventional Commits.
+- Keep documentation up to date.
+- Write modular and maintainable code.
+- Review all AI-generated code before committing.
+- Commit small, meaningful changes frequently.
+
+Example commit messages:
+
+```text
+feat: implement authentication
+fix: resolve API validation issue
+docs: update README
+refactor: simplify prompt builder
+test: add unit tests
+```
+
+---
+
+# 👤 Author
+
+**Harsh Bhadoriya**
+
+- GitHub: https://github.com/harshbhadoriya456-source
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+<div align="center">
+
+**Built with ❤️ and AI-assisted development**
+
+*Last Updated: August 2026*
+
+</div>
