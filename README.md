@@ -1,30 +1,24 @@
 # FlyRank AI Capstone
 
-## 📌 Overview
+## Overview
 
-This repository contains my capstone project for the FlyRank AI Engineering Track. The project follows AI-assisted software development practices using Git, GitHub, and modern development tools.
+This repository contains my capstone project for the FlyRank AI Engineering Track. The goal is to build a production-ready AI application while following modern software engineering and AI-assisted development practices.
 
----
-
-## 🎯 Objectives
+## Objectives
 
 - Build a production-ready AI application
-- Follow AI-assisted development workflows
-- Maintain clean Git history with Conventional Commits
-- Write clear project documentation
+- Use AI-assisted development tools effectively
+- Maintain a clean Git history using Conventional Commits
+- Follow industry-standard documentation practices
 
----
-
-## 🛠 Tech Stack
+## Tech Stack
 
 - Node.js
 - Git & GitHub
 - Cursor / Claude Code
-- (More technologies will be added as development progresses.)
+- (Additional technologies will be added during development.)
 
----
-
-## 📂 Repository Structure
+## Repository Structure
 
 ```
 .
@@ -34,24 +28,13 @@ This repository contains my capstone project for the FlyRank AI Engineering Trac
 ├── CLAUDE.md
 ```
 
----
-
-## 🚀 Getting Started
-
-Clone the repository:
+## Getting Started
 
 ```bash
-git clone <repository-url>
-```
-
-Navigate into the project:
-
-```bash
+git clone https://github.com/harshbhadoriya456-source/flyrank-ai-capstone.git
 cd flyrank-ai-capstone
 ```
 
----
-
-## 📄 License
+## License
 
 This project is licensed under the MIT License.
