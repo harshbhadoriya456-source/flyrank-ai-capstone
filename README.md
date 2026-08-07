@@ -1,90 +1,26 @@
-# FlyRank AI Capstone
+&lt;div align="center"&gt;
 
-## Overview
-This repository contains my capstone project for the **FlyRank AI Engineering Track**. The goal is to build a production-ready AI application while following modern software engineering and AI-assisted development practices.
+# 🚀 FlyRank AI Capstone
 
-> The project idea and problem statement will be finalized in the implementation phase of the capstone.
+**AI-Powered [Domain TBD] — Built with Modern Engineering Practices**
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/Node.js-20%2B-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org/)
+[![Status](https://img.shields.io/badge/Status-Phase%201%20Setup-blue)](https://github.com/harshbhadoriya456-source/flyrank-ai-capstone)
 
-## Project Status
-🚧 **Phase 1: Repository Setup** (Completed)
+[Overview](#overview) • [Tech Stack](#tech-stack) • [AI Workflow](#ai-workflow) • [Roadmap](#roadmap) • [Getting Started](#getting-started)
 
-The project is currently in the setup phase. Features, architecture, and implementation will be added in subsequent milestones.
-
----
-
-## Objectives
-- Build a production-ready AI application
-- Use AI-assisted development tools effectively throughout the workflow
-- Maintain a clean Git history using Conventional Commits
-- Follow industry-standard documentation practices
+&lt;/div&gt;
 
 ---
 
-## Tech Stack
+## 📋 Overview
 
-- Git
-- GitHub
-- Node.js
-- Visual Studio Code
-- AI Coding Assistant (Cursor / Claude Code)
+FlyRank is a production-ready AI application built as the capstone project for the **FlyRank AI Engineering Track**. It leverages modern AI-assisted development workflows and industry-standard software engineering practices to solve real-world problems through intelligent automation.
+
+&gt; **Problem Statement:** *[To be finalized in Milestone 2 — targeting a domain where AI can deliver measurable value through automation and intelligent decision-making.]*
 
 ---
 
-## AI Workflow
-This section will be updated during development to document how AI tools are used for code generation, debugging, documentation, testing, and code review throughout the project lifecycle.
-
----
-
-## Repository Structure
-
-```text
-.
-├── README.md
-├── LICENSE
-├── .gitignore
-├── CLAUDE.md
-```
-
----
-
-## Roadmap
-- [x] Repository setup
-- [x] Documentation
-- [ ] Project initialization
-- [ ] Feature development
-- [ ] Testing
-- [ ] Deployment
-
----
-
-## Development Guidelines
-- Follow Conventional Commits
-- Keep documentation updated
-- Write modular and maintainable code
-- Commit changes frequently with meaningful messages
-
----
-
-## Getting Started
-
-```bash
-git clone https://github.com/harshbhadoriya456-source/flyrank-ai-capstone.git
-cd flyrank-ai-capstone
-```
-
----
-
-## Author
-**Harsh** — [GitHub](https://github.com/harshbhadoriya456-source)
-
----
-
-## License
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## Last Updated
-August 2026
+## 🏗️ Architecture
