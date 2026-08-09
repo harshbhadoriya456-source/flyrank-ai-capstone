@@ -8,6 +8,39 @@ This repository is a starting point for a domain-driven AI product. The project 
 
 **Current status:** Active development.
 
+## Quick Start
+
+This quick start helps a new developer get the project running locally in under two minutes.
+
+1. Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/harshbhadoriya456-source/flyrank-ai-capstone.git
+cd flyrank-ai-capstone
+npm install
+```
+
+2. Create a local `.env` from the example (choose the command for your shell):
+
+```bash
+# Unix / macOS
+cp .env.example .env
+# PowerShell
+Copy-Item -Path .env.example -Destination .env
+# Windows CMD
+copy .env.example .env
+```
+
+3. Start the development server and verify a running API:
+
+```bash
+npm run dev
+# in another terminal
+curl http://localhost:3000/health
+```
+
+You should receive a JSON response such as `{"status":"ok"}`. Adjust the port or route if your configuration differs.
+
 ## Architecture
 
 The application is organized into three primary layers:
@@ -22,14 +55,14 @@ The application is organized into three primary layers:
 |---|---|---|
 | Runtime | Node.js 20+ | Server-side JavaScript execution |
 | Language | TypeScript 5.x | Static typing and safer code |
-| Framework | TBD | Web API and application framework |
-| AI / ML | TBD | Prompt-driven intelligence and model integration |
-| Database | TBD | Persistent data storage |
-| ORM | TBD | Database abstraction and migrations |
-| Testing | TBD | Unit, integration, and E2E testing |
+| Framework | Fastify | Lightweight, high-performance HTTP server for APIs |
+| AI / ML | OpenAI-compatible APIs + LangChain | Model access and orchestration for prompt-driven features |
+| Database | PostgreSQL | Reliable relational storage with strong ecosystem support |
+| ORM | Prisma | Type-safe DB client, migrations, and developer ergonomics |
+| Testing | Vitest (unit), Playwright (E2E) | Fast unit tests and cross-browser end-to-end testing |
 | CI/CD | GitHub Actions | Automated validation and deployment |
 | Containerization | Docker | Local development and consistency |
-| Deployment | TBD | Production hosting and release management |
+| Deployment | Vercel (frontend) / Fly.io or Render (backend) | Lightweight, modern hosting options for apps and services |
 
 ## AI Workflow
 
@@ -97,8 +130,14 @@ flyrank-ai-capstone/
 git clone https://github.com/harshbhadoriya456-source/flyrank-ai-capstone.git
 cd flyrank-ai-capstone
 npm install
+# create a local .env from the example (cross-platform)
+# Unix / macOS
 cp .env.example .env
-# edit .env as needed
+# Windows PowerShell
+Copy-Item -Path .env.example -Destination .env
+# Windows Command Prompt
+copy .env.example .env
+# edit .env as needed, then start the dev server
 npm run dev
 ```
 
@@ -114,6 +153,23 @@ npm run format
 npm run db:migrate
 npm run db:seed
 ```
+
+### Try it (quick run)
+
+Start the dev server, install dependencies, then make a simple healthcheck request:
+
+```bash
+# install dependencies
+npm install
+
+# start in development (Hot reload provided by ts-node-dev)
+npm run dev
+
+# in a second terminal, run a healthcheck
+curl http://localhost:3000/health
+```
+
+You should receive a JSON `{"status":"ok"}` response from the running API on port 3000. Adjust `PORT` or the route to match your configuration.
 
 ## Development Guidelines
 
