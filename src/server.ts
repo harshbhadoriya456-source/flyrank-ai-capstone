@@ -147,6 +147,16 @@ const settingsFormHtml = `
         </div>
 
         <div class="field">
+          <label for="theme">Theme preference</label>
+          <select id="theme" name="theme" aria-describedby="theme-error">
+            <option value="system">System default</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+          <div id="theme-error" class="error" aria-live="polite"></div>
+        </div>
+
+        <div class="field">
           <label for="timezone">Timezone</label>
           <select id="timezone" name="timezone" aria-describedby="timezone-error">
             <option value="">Select a timezone</option>
@@ -169,13 +179,14 @@ const settingsFormHtml = `
           <label for="notifications">Enable notifications</label>
         </div>
 
-        <button type="submit">Save settings</button>
+        <button id="submit-btn" type="submit">Save settings</button>
         <div id="success-message" class="success" role="status" aria-live="polite">Settings saved successfully.</div>
       </form>
     </main>
 
     <script>
       const form = document.getElementById('settings-form');
+      const submitBtn = document.getElementById('submit-btn');
       const successMessage = document.getElementById('success-message');
 
       function setFieldError(fieldName, message) {
@@ -198,6 +209,7 @@ const settingsFormHtml = `
         const values = {
           displayName: form.displayName.value,
           email: form.email.value,
+          theme: form.theme.value,
           timezone: form.timezone.value,
           refreshRate: form.refreshRate.value,
         };
@@ -209,6 +221,7 @@ const settingsFormHtml = `
           email: !values.email || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(values.email.trim())
             ? 'Please enter a valid email address.'
             : '',
+          theme: !['light', 'dark', 'system'].includes(values.theme) ? 'Please select a valid theme preference.' : '',
           timezone: !values.timezone ? 'Please select a timezone.' : '',
           refreshRate: !Number.isInteger(Number(values.refreshRate)) || Number(values.refreshRate) < 1 || Number(values.refreshRate) > 1440
             ? 'Refresh rate must be an integer between 1 and 1440 minutes.'
@@ -230,38 +243,48 @@ const settingsFormHtml = `
           return;
         }
 
-        const payload = {
-          displayName: form.displayName.value.trim(),
-          email: form.email.value.trim(),
-          notifications: form.notifications.checked,
-          timezone: form.timezone.value,
-          refreshRate: Number(form.refreshRate.value)
-        };
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Saving...';
 
-        const response = await fetch('/settings', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
-        });
+        try {
+          const payload = {
+            displayName: form.displayName.value.trim(),
+            email: form.email.value.trim(),
+            notifications: form.notifications.checked,
+            theme: form.theme.value,
+            timezone: form.timezone.value,
+            refreshRate: Number(form.refreshRate.value)
+          };
 
-        if (!response.ok) {
-          const data = await response.json();
-          if (data.errors) {
-            Object.entries(data.errors).forEach(([fieldName, message]) => {
-              if (fieldName !== 'unknownFields') {
-                setFieldError(fieldName, String(message));
-              }
-            });
+          const response = await fetch('/settings', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+          });
+
+          if (!response.ok) {
+            const data = await response.json();
+            if (data.errors) {
+              Object.entries(data.errors).forEach(([fieldName, message]) => {
+                if (fieldName !== 'unknownFields') {
+                  setFieldError(fieldName, String(message));
+                }
+              });
+            }
+            return;
           }
-          return;
-        }
 
-        successMessage.style.display = 'block';
-        form.reset();
-        form.notifications.checked = true;
-        form.refreshRate.value = '15';
+          successMessage.style.display = 'block';
+          form.reset();
+          form.notifications.checked = true;
+          form.theme.value = 'system';
+          form.refreshRate.value = '15';
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Save settings';
+        }
       });
     </script>
   </body>

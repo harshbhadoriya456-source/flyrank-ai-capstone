@@ -2,16 +2,20 @@ export const allowedSettingsKeys = [
   "displayName",
   "email",
   "notifications",
+  "theme",
   "timezone",
   "refreshRate",
 ] as const;
 
 export type AllowedSettingsKey = (typeof allowedSettingsKeys)[number];
 
+export type ThemeOption = "light" | "dark" | "system";
+
 export type SettingsFormValues = {
   displayName: string;
   email: string;
   notifications: boolean;
+  theme: ThemeOption;
   timezone: string;
   refreshRate: number;
 };
@@ -26,11 +30,13 @@ export const defaultSettings: SettingsFormValues = {
   displayName: "",
   email: "",
   notifications: true,
+  theme: "system",
   timezone: "",
   refreshRate: 15,
 };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const validThemes: ThemeOption[] = ["light", "dark", "system"];
 
 export function validateSettings(
   values: Record<string, unknown>,
@@ -56,6 +62,11 @@ export function validateSettings(
     errors.email = "Please enter a valid email address.";
   }
 
+  const theme = typeof values.theme === "string" ? values.theme.trim() : "";
+  if (!theme || !validThemes.includes(theme as ThemeOption)) {
+    errors.theme = "Please select a valid theme preference (light, dark, or system).";
+  }
+
   const timezone = typeof values.timezone === "string" ? values.timezone.trim() : "";
   if (!timezone) {
     errors.timezone = "Please select a timezone.";
@@ -78,12 +89,19 @@ export function validateSettings(
 export function normalizeSettingsInput(
   values: Record<string, unknown>,
 ): SettingsFormValues {
+  const themeInput = typeof values.theme === "string" ? values.theme.trim() : "";
+  const validTheme = validThemes.includes(themeInput as ThemeOption)
+    ? (themeInput as ThemeOption)
+    : defaultSettings.theme;
+
   return {
     displayName:
       typeof values.displayName === "string" ? values.displayName.trim() : "",
     email: typeof values.email === "string" ? values.email.trim() : "",
     notifications: Boolean(values.notifications),
+    theme: validTheme,
     timezone: typeof values.timezone === "string" ? values.timezone.trim() : "",
     refreshRate: Number(values.refreshRate ?? defaultSettings.refreshRate),
   };
 }
+

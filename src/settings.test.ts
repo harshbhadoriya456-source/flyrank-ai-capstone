@@ -7,6 +7,7 @@ describe("validateSettings", () => {
       displayName: "Jane Doe",
       email: "jane@example.com",
       notifications: true,
+      theme: "dark",
       timezone: "UTC",
       refreshRate: 15,
     });
@@ -19,6 +20,7 @@ describe("validateSettings", () => {
       displayName: "J",
       email: "not-an-email",
       notifications: false,
+      theme: "invalid-theme",
       timezone: "",
       refreshRate: -1,
     });
@@ -26,6 +28,7 @@ describe("validateSettings", () => {
     expect(result).toMatchObject({
       displayName: "Display name must be 2 to 50 characters.",
       email: "Please enter a valid email address.",
+      theme: "Please select a valid theme preference (light, dark, or system).",
       timezone: "Please select a timezone.",
       refreshRate: "Refresh rate must be an integer between 1 and 1440 minutes.",
     });
@@ -36,6 +39,7 @@ describe("validateSettings", () => {
       displayName: "A".repeat(51),
       email: "user@example.com",
       notifications: true,
+      theme: "light",
       timezone: "UTC",
       refreshRate: 15,
       extraField: "not allowed",
@@ -45,3 +49,4 @@ describe("validateSettings", () => {
     expect(result.unknownFields).toEqual(["extraField"]);
   });
 });
+
