@@ -9,7 +9,10 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "test": "vitest",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write .",
+    "db:migrate": "prisma migrate deploy",
+    "db:seed": "node prisma/seed.js"
   },
   "engines": {
     "node": ">=20"

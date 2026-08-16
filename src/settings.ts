@@ -104,4 +104,3 @@ export function normalizeSettingsInput(
     refreshRate: Number(values.refreshRate ?? defaultSettings.refreshRate),
   };
 }
-

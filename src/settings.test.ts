@@ -49,4 +49,3 @@ describe("validateSettings", () => {
     expect(result.unknownFields).toEqual(["extraField"]);
   });
 });
-
