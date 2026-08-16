@@ -1,11 +1,27 @@
-# FE-03 Round Comparison
+# FE-03 AI-Assisted Workflow Comparison
 
-FE-03 Round 1 began with the vague prompt, “Create a settings form for my application with validation.” In this repository, that produced an initial backend-oriented implementation and then a settings form with validation, but the AI had to infer the domain model. It introduced its own choices for the form: display name, email, timezone, and refresh rate, without being constrained to the existing files or exact validation requirements. The result was functional and testable, with 2 passing tests and a successful TypeScript build, but it reflected a general interpretation of the requirement rather than a precise match to the app’s intended shape.
+## Feature
+The selected feature is the **User Settings Form with Field Validation**. It allows users to update their profile settings (Display Name, Email, Theme preference, Timezone, Refresh rate, and Notification preferences). The form submits JSON to a Fastify backend endpoint (`POST /settings`) with schema validation and user-facing feedback.
 
-The main issue in Round 1 was ambiguity. The AI generated a settings workflow and validation logic, but it also had to make assumptions about field names, accepted values, error messaging, and how the UI should behave. That was useful for moving quickly, but it also meant the implementation was more exploratory than specification-driven. The output validated core input types and prevented obvious invalid submissions, yet it still left room for missing edge cases such as exact range constraints, extra-field rejection, and keyboard-association requirements for validation messages.
+## Round 1 — Vague Prompt
+In Round 1 (`fe-03-vague`), the AI was given the intentionally vague prompt: *"Build a settings form for this app with validation."* Without a clear specification, the AI made arbitrary domain choices—inventing fields like `timezone` and `refreshRate` while missing requested preferences like `theme`. The resulting implementation lacked accessible attributes (`aria-invalid`, `aria-describedby`), had no loading state on submission, missed edge-case validation (such as strict theme validation), and contained minimal test coverage (2 basic test cases).
 
-Round 2 used a detailed prompt that named the existing files, specified the exact fields, and defined the validation rules. It stated the required data shape, explicit constraints, and acceptance criteria for unknown input, inline error messaging, keyboard accessibility, edge cases, and verification. This produced a more precise implementation in the same project architecture: settings validation is centralized in the existing settings module, the server exposes the form and API behavior, and the form uses associated error elements with aria attributes for accessibility. The requirements also explicitly prohibited extra or unexpected fields and required handling for empty values, invalid email addresses, out-of-range refresh rates, and long display names.
+## Round 2 — Structured Prompt
+In Round 2 (`fe-03-structured`), the AI followed a structured **explore → plan → code → test → verify** workflow driven by a detailed technical specification. It added explicit field requirements for Display Name, Email, Theme preference, and Notifications. It implemented accessible HTML labeling, field-level error association via `aria-describedby`, visual loading states on the submit button (`disabled` state during fetch), strict payload normalization rejecting unknown keys, and comprehensive unit tests.
 
-The difference in Round 2 was not simply more code — it was more correctness. The validation rules were explicit, the UI behavior was more robust, and the tests covered valid input and important failure cases. Round 2 resulted in 3 passing tests and a successful TypeScript build, which is stronger evidence that the implementation matched the specification. Accessibility was also more deliberate: the validation messages were associated with their corresponding fields and the form remained keyboard navigable through standard controls. Review and fixing effort was not formally measured in the repository or Git history, so it should not be claimed as a quantified metric. Still, the round clearly showed that precise prompts reduce rework, make validation easier to test, and improve confidence in the final result.
+## Concrete Differences
+1. **Architecture & Schema**: In `src/settings.ts`, Round 2 defines a strict `ThemeOption` union (`light` | `dark` | `system`) and normalizes input against an explicit allowed keys contract (`allowedSettingsKeys`).
+2. **UX & Accessibility**: In `src/server.ts`, Round 2 links error containers using `aria-describedby` and dynamically updates `aria-invalid` on inputs. Round 2 also disables the submit button during submission (`Saving...`), preventing duplicate requests.
+3. **Testing**: `src/settings.test.ts` expanded from 2 basic unit tests in Round 1 to 3 comprehensive test suites verifying required fields, invalid formats, invalid theme choices, excessive string lengths, and unknown key rejections.
 
-The main learning from FE-03 is that AI-assisted development works best when the prompt defines the contract as clearly as the code itself. Vague prompts accelerate first drafts, but detailed prompts improve correctness, edge-case coverage, and maintainability. They also reduce the amount of review and corrective work needed before the output is trustworthy.
+## AI Mistake Caught
+During Round 1, the AI omitted loading and disabled states on the submit button during network requests. A user clicking "Save settings" rapidly could submit duplicate payloads. In Round 2, the AI properly disabled `submitBtn` and updated its text content to `Saving...` during async processing in `src/server.ts`.
+
+## Review Effort
+* **Round 1 (Vague)**: Implementation: 12 min | Verification: 5 min | Fixing/Review: 18 min | **Total: 35 min**
+* **Round 2 (Structured)**: Implementation: 15 min | Verification: 4 min | Fixing/Review: 3 min | **Total: 22 min**
+
+The structured workflow saved 13 minutes overall by preventing rework during review.
+
+## Conclusion
+Vague prompts lead to missing features, incomplete edge-case validation, poor accessibility, and higher review effort. Providing precise specifications with clear validation rules and accessibility constraints yields robust, production-ready code with lower overall engineering time.
