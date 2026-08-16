@@ -21,3 +21,12 @@ Build a production-ready AI application as part of the FlyRank AI Engineering Tr
 - Clear folder structure
 - Meaningful variable names
 - Handle errors properly
+
+## AI Development Rules
+
+- Forms must declare explicit validation rules for every required field before implementation; unsupported fields or empty values must be rejected by validation logic.
+- User-facing validation messages must be associated with their corresponding input fields via `aria-describedby` and `aria-invalid` and remain accessible through keyboard navigation.
+- Tests must cover at least one valid input case and important failure cases, including invalid email values, empty required fields, invalid refresh-rate ranges, invalid theme choices, and excessive display-name lengths.
+- AI-generated changes must preserve the existing project architecture and avoid unnecessary dependencies or unrelated files when a focused fix is sufficient.
+- Unknown or unexpected input must be rejected where the schema is strict, especially for HTTP payloads and form submissions that include extra keys not defined by the application contract.
+- Interactive submit controls must implement explicit loading and disabled states (`disabled = true`) during active async operations to prevent duplicate submission edge cases.

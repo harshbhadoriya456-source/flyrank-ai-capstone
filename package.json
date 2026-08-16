@@ -2,7 +2,7 @@
   "name": "flyrank-ai-capstone",
   "version": "0.1.0",
   "private": true,
-  "description": "FlyRank AI Capstone - minimal runnable scaffold",
+  "description": "FlyRank AI Capstone - settings form and validation",
   "main": "dist/server.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
@@ -21,11 +21,11 @@
     "fastify": "^4.25.0"
   },
   "devDependencies": {
-    "typescript": "^5.4.0",
-    "ts-node-dev": "^2.0.0",
-    "vitest": "^1.0.0",
+    "@types/node": "^20.0.0",
     "eslint": "^8.0.0",
     "prettier": "^2.0.0",
-    "@types/node": "^20.0.0"
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.0.0"
   }
 }
